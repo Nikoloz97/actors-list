@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- Need to hand the data off... -->
+    <hello-world v-bind:tacos="tacos"/>
   </div>
 </template>
 
@@ -10,10 +11,14 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {HelloWorld},
+  data() {
+    return {
+      tacos: ['soft', 'hard', 'crunchy', 'light', 'heavy'],
+    }
   }
 }
+
 </script>
 
 <style>
