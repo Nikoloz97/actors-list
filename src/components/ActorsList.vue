@@ -1,20 +1,30 @@
 <template>
   <div id="App">
     <ul>
-      <li v-for="actor in actors" v-bind:key="actor">{{actor}}</li>
+      <li>Hello</li>
     </ul>
   </div>
   
 </template>
 
 <script>
-import actorService from '../services/ActorService.js'
-// TODO: create filter function for actors list (step 3 in plan)
+// import actorService from '../services/ActorService.js'
+
 export default {
   name: 'actorsList',
   data() {
+    return {
+
+    }
     
+  },
+  methods: {
+    getActors() {
+      
+    }
   }
+
+
 }
 
 

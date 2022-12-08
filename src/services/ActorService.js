@@ -5,12 +5,17 @@ const http = axios.create({
     headers: {
         'x-chmura-cors' : '19c313ce-6e7e-460a-b62c-0fc5128b3498'
     }
-
 });
 
 export default {
-    getAllActors() {
-        return http.get();
+    // Returns Cage's ID 
+    getCageId() {
+        return http.get()
+    },  
+
+    // Return Reeve's ID
+    getReevesId() {
+        return http.get()
     }
 }
 

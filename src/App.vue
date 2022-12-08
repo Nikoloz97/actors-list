@@ -9,11 +9,23 @@
 
 <script>
 import ActorsList from './components/ActorsList.vue'
+import ActorService from './services/ActorService'
 export default {
 name: 'App',
-components: {ActorsList}
-}
+components: {ActorsList},
 
+created() {
+  ActorService.getCageId().then((response) => {
+    const Cage = response.data.find(actor => actor.name == "Nicolas Cage")
+    console.log(Cage.actorId);
+}),
+  ActorService.getReevesId().then((response) => {
+    const Reeves = response.data.find(actor => actor.name == "Keanu Reeves")
+    console.log(Reeves.actorId);
+})
+
+}
+}
 </script>
 
 <style>
