@@ -1,22 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <!-- Need to hand the data off... -->
-    <hello-world v-bind:tacos="tacos"/>
+    <h1>Welcome to Actor's List!</h1>
+    <p>Here are a list of actors starring Nicholas Cage and Keanu Reeves:</p>
+    <actors-list/>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ActorsList from './components/ActorsList.vue'
 export default {
-  name: 'App',
-  components: {HelloWorld},
-  data() {
-    return {
-      tacos: ['soft', 'hard', 'crunchy', 'light', 'heavy'],
-    }
-  }
+name: 'App',
+components: {ActorsList}
 }
 
 </script>

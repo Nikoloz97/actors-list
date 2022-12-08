@@ -1,18 +1,22 @@
 <template>
-  <div class="hello">
+  <div id="App">
     <ul>
-      <li v-for='taco in tacos' v-bind:key='taco'>{{taco}}</li>
+      <li v-for="actor in actors" v-bind:key="actor">{{actor}}</li>
     </ul>
   </div>
+  
 </template>
 
 <script>
+import actorService from '../services/ActorService.js'
+// TODO: create filter function for actors list (step 3 in plan)
 export default {
-  name: 'HelloWorld',
-  props: 
-  ['tacos']
-  
+  name: 'actorsList',
+  data() {
+    
+  }
 }
+
 
 </script>
 
