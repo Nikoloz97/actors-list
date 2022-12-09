@@ -8,13 +8,7 @@ const http = axios.create({
 });
 
 export default {
-    // Returns Cage's ID 
-    getCageId() {
-        return http.get()
-    },  
-
-    // Return Reeve's ID
-    getReevesId() {
+    getAllActors() {
         return http.get()
     }
 }
