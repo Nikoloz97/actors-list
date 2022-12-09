@@ -1,6 +1,8 @@
 <template>
   <div id="App">
     <ul>
+      <h1>Welcome to Actor's List!</h1>
+    <h3>Here are a list of actors that have starred in a movie with Nicholas Cage and Keanu Reeves (but not necessarily at the same time):</h3>
 
         <div v-for="actor in $store.state.ActorNamesArray" v-bind:key="actor">
           <li>{{actor}}</li>
@@ -54,15 +56,19 @@ ul {
 }
 li {
   display: block;
-  margin: 0 10px;
+  margin: 2rem 0 0;
+
 }
 a {
   color: #42b983;
 }
 img {
-  height: 5rem;
+  height: 10rem;
 }
-* {
-  background-color: azure;
+html {
+  background-color: rgb(201, 203, 203);
+}
+h1 {
+  text-decoration: underline;
 }
 </style>

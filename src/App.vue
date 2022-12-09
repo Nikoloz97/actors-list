@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <h1>Welcome to Actor's List!</h1>
-    <p>Here are a list of actors that have starred in a movie with Nicholas Cage and Keanu Reeves (but not necessarily at the same time):</p>
     <actors-list/>
   </div>
 </template>
@@ -90,8 +88,7 @@ ReevesActorIDs = [...new Set(ReevesActorIDs)]
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  background-color: azure;
+  background-color: rgb(235, 239, 239);
 }
 
 
