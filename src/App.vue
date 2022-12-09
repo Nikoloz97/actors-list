@@ -17,23 +17,23 @@ name: 'App',
 components: {ActorsList},
 
 created() {
-  // Returns Cage's actor ID (115)
+  // ***Returns Cage's actor ID (115)***
   ActorService.getAllActors().then((response) => {
     const Cage = response.data.find(actor => actor.name == "Nicolas Cage")
     // Test to seee if Cage ID displays...
-    // console.log(Cage.actorId);
+    console.log(Cage.actorId);
     return Cage.actorId
 }),
 
-  //Returns Reeve's actor ID (206)
+  //***Returns Reeve's actor ID (206)***
   ActorService.getAllActors().then((response) => {
     const Reeves = response.data.find(actor => actor.name == "Keanu Reeves")
     // Test to see if Reeves ID displays...
-    // console.log(Reeves.actorId);
+    console.log(Reeves.actorId);
     return Reeves.actorId
 }),
 
-  //Returns unique actor IDs of those that played with Cage AND Reeves
+  // ***Returns unique actor IDs of those that played with Cage AND Reeves***
   MovieService.getAllMovies().then((response) => {
 
     // 1. Create lists of movies that star Cage and Reeves
@@ -41,7 +41,7 @@ created() {
     const ReevesMovies = response.data.filter(movie => (movie.actors.includes(206)))
 
     // 2. Create Cage actorIDs
-    let CageActorIDs;
+    let CageActorIDs = [];
     // foreach movie starring Cage...
     CageMovies.forEach((cageMovie) => {
       cageMovie.actors.forEach((actorID => {
@@ -55,7 +55,7 @@ created() {
     CageActorIDs = [...new Set(CageActorIDs)]
 
     // 3. Create Reeves actorIDs
-    let ReevesActorIDs;
+    let ReevesActorIDs = [];
      // foreach movie starring Reeves...
     ReevesMovies.forEach((reeveMovie) => {
       reeveMovie.actors.forEach((actorID => {
@@ -71,8 +71,18 @@ created() {
 
     //4. Create actor Ids list that starred in Reeves AND Cage movies
     let ReevesCageActorIDs = CageActorIDs.filter(cageActorID => ReevesActorIDs.includes(cageActorID))
+    // Check to see if an actor ID array displays...
+    console.log(ReevesCageActorIDs)
     return ReevesCageActorIDs;
+
   })
+
+    // ***For full actor list, find actor.actorId that match with any of ReevesCageActorIDs***
+    ActorService.getAllActors().then((response) => {
+    response.data.forEach(actor => (actor.actorId == actor))
+
+})
+
 }
 }
 </script>
