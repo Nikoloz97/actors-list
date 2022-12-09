@@ -1,14 +1,13 @@
 <template>
   <div id="App">
     <ul>
-      <li>Hello</li>
+        <li v-for="actor in $store.state.ActorNamesArray" v-bind:key="actor">{{actor}}<br/></li>
     </ul>
   </div>
   
 </template>
 
 <script>
-// import actorService from '../services/ActorService.js'
 
 export default {
   name: 'actorsList',
@@ -26,7 +25,6 @@ export default {
 
 
 }
-
 
 </script>
 
