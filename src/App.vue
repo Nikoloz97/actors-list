@@ -69,9 +69,8 @@ created() {
     ReevesActorIDs = [... new Set(ReevesActorIDs)]
 
 
-    //4. Create actor Ids that starred in Reeves and Cage movies
+    //4. Create actor Ids list that starred in Reeves AND Cage movies
     let ReevesCageActorIDs = CageActorIDs.filter(cageActorID => ReevesActorIDs.includes(cageActorID))
-
     return ReevesCageActorIDs;
   })
 }
