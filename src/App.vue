@@ -10,19 +10,27 @@
 <script>
 import ActorsList from './components/ActorsList.vue'
 import ActorService from './services/ActorService'
+import MovieService from './services/MovieService'
+
 export default {
 name: 'App',
 components: {ActorsList},
 
 created() {
-  ActorService.getCageId().then((response) => {
+  ActorService.getActorsList().then((response) => {
     const Cage = response.data.find(actor => actor.name == "Nicolas Cage")
-    console.log(Cage.actorId);
+    // Test to seee if Cage ID displays...
+    // console.log(Cage.actorId);
+    return Cage.actorId
 }),
-  ActorService.getReevesId().then((response) => {
+
+  ActorService.getActorsList().then((response) => {
     const Reeves = response.data.find(actor => actor.name == "Keanu Reeves")
-    console.log(Reeves.actorId);
-})
+    // Test to see if Reeves ID displays...
+    // console.log(Reeves.actorId);
+    return Reeves.actorId
+}),
+
 
 }
 }
