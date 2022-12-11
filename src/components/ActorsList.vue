@@ -1,7 +1,10 @@
 <template>
   <div id="App">
     <ul>
-    <h1>Welcome to the Reeves Cage Gameshow</h1>
+    <b-card>
+      <b-text> <h1>Welcome to the Reeves Cage Gameshow</h1></b-text>
+    </b-card>
+    
     <h3>A defining test to see if you have what it takes to correctly guess the actors that starred in a movie with Nicolas Cage and Keanu Reeves</h3>
 
     <!-- For each actor item in names array...  -->
@@ -29,12 +32,25 @@
                 <h4>{{actor}}</h4>
               </header>
 
-
               <b-card-body>
-                <p>Starred in a movie with Reeves called </p>
-                <p>Starred in a movie with Cage called </p>
-              </b-card-body>
+                <button class="border" @click="showMovies = true" v-if="showMovies == false">Click to see the movies</button>
+                <b-card-text v-if = "showMovies">
+                  <h6>Movies starred with Keanu Reeves: </h6>
+                  <!-- TODO: display a list of movie titles that actor stars with Keanu Reeves  -->
+                  <ul v-for="actor in $store.state.ActorNamesArray" v-bind:key="actor">
+                    <li>{{actor}}</li>
+                  </ul>
+                </b-card-text>
 
+                <!-- TODO: display a list of movie titles that actor stars with Cage  -->
+                <b-card-text v-if = "showMovies">
+                  <h6>Movies starred with Nicolas Cage: </h6>
+                  <ul v-for="actor in $store.state.ActorNamesArray" v-bind:key="actor">
+                    <li></li>
+                  </ul>
+                </b-card-text>
+
+              </b-card-body>
 
             </b-card>
 
@@ -90,7 +106,7 @@ export default {
   name: 'actorsList',
   data() {
     return {
-
+      showMovies: false
     }
     
   },
