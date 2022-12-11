@@ -14,7 +14,9 @@ name: 'App',
 components: {ActorsList},
 
 created() {
-  
+
+  //**Populates ActorNamesArray with actor names that starred in a movie with Cage and Reeves  */
+
   let ActorNamesArray = [];
   ActorService.getAllActors().then((actor) => {
     const CageObj = actor.data.find(actor => actor.name == "Nicolas Cage")

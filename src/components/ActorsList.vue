@@ -1,11 +1,13 @@
 <template>
   <div id="App">
     <ul>
-      <h1>Welcome to Actor's List!</h1>
-    <h3>Here are a list of actors that have starred in a movie with Nicholas Cage and Keanu Reeves (but not necessarily at the same time):</h3>
-
+    <h1>Welcome to the Reeves Cage Gameshow</h1>
+    <h3>A defining test to see if you have what it takes to correctly guess the actors that starred in a movie with Nicolas Cage and Keanu Reeves</h3>
+    <!-- For each actor item in names array...  -->
         <div v-for="actor in $store.state.ActorNamesArray" v-bind:key="actor">
+          <!-- Display the actor name... -->
           <li>{{actor}}</li>
+          <!-- And display image only if the name matches the respected string -->
           <img v-show= "actor == 'Giovanni Ribisi'" src="../assets/Ribisi.jpg" alt="Image of Giovanni Ribisi">
           <img v-show= "actor == 'Bridget Fonda'" src="../assets/Fonda.jpg" alt="Image of Giovanni Ribisi">
           <img v-show= "actor == 'James Caan'" src="../assets/Caan.jpg" alt="Image of Giovanni Ribisi">
@@ -19,6 +21,33 @@
 
         </div>
     </ul>
+
+    <button class="btn btn-success">Yo</button>
+
+
+
+
+
+
+    <!-- **Test to see if portal-vue works... -->
+    <Design-Container>
+    <Design-Panel color="green" text="Source">
+      <p>
+        The content below this paragraph is
+        rendered in the right/bottom (red) container by PortalVue
+      </p>
+      <Portal to="right-basic">
+        <p class="red">
+          This is content from the left/top container (green).
+          The cool part is, it works across components,
+          so you can send your content anywhere!
+        </p>
+      </Portal>
+    </Design-Panel>
+    <Design-Panel color="red" text="Target" left>
+      <PortalTarget name="right-basic"></PortalTarget>
+    </Design-Panel>
+  </Design-Container>
   </div>
   
 </template>
@@ -34,9 +63,7 @@ export default {
     
   },
   methods: {
-    getActors() {
-      
-    }
+    
   }
 
 
