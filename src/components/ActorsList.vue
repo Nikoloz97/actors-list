@@ -3,27 +3,59 @@
     <ul>
     <h1>Welcome to the Reeves Cage Gameshow</h1>
     <h3>A defining test to see if you have what it takes to correctly guess the actors that starred in a movie with Nicolas Cage and Keanu Reeves</h3>
-    <!-- For each actor item in names array...  -->
-        <div v-for="actor in $store.state.ActorNamesArray" v-bind:key="actor">
-          <!-- Display the actor name... -->
-          <li>{{actor}}</li>
-          <!-- And display image only if the name matches the respected string -->
-          <img v-show= "actor == 'Giovanni Ribisi'" src="../assets/Ribisi.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Bridget Fonda'" src="../assets/Fonda.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'James Caan'" src="../assets/Caan.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Christopher Plummer'" src="../assets/Plummer.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Charlize Theron'" src="../assets/Theron.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Laurence Fishburne'" src="../assets/Fishburne.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Thomas Jane'" src="../assets/Jane.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Tilda Swinton'" src="../assets/Swinton.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Willem Dafoe'" src="../assets/Dafoe.jpg" alt="Image of Giovanni Ribisi">
-          <img v-show= "actor == 'Dennis Hopper'" src="../assets/Hopper.jpg" alt="Image of Giovanni Ribisi">
 
-        </div>
+    <!-- For each actor item in names array...  -->
+        <b-container class="mb-5 mt-5" v-for="actor in $store.state.ActorNamesArray" v-bind:key="actor">
+          <b-row align-v="center">
+          <b-col>
+            <b-card>
+
+              <!-- Display image only if the name matches the respected string -->
+              <b-card id="test">
+                <img v-show= "actor == 'Giovanni Ribisi'" src="../assets/Ribisi.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Bridget Fonda'" src="../assets/Fonda.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'James Caan'" src="../assets/Caan.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Christopher Plummer'" src="../assets/Plummer.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Charlize Theron'" src="../assets/Theron.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Laurence Fishburne'" src="../assets/Fishburne.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Thomas Jane'" src="../assets/Jane.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Tilda Swinton'" src="../assets/Swinton.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Willem Dafoe'" src="../assets/Dafoe.jpg" alt="Image of Giovanni Ribisi">
+                  <img v-show= "actor == 'Dennis Hopper'" src="../assets/Hopper.jpg" alt="Image of Giovanni Ribisi">
+              </b-card>
+                
+                <!-- Display the actor name... -->
+              <header class="mt-2" >
+                <h4>{{actor}}</h4>
+              </header>
+
+
+              <b-card-body>
+                <p>Starred in a movie with Reeves called </p>
+                <p>Starred in a movie with Cage called </p>
+              </b-card-body>
+
+
+            </b-card>
+
+
+          </b-col>
+            <b-col>
+              <!-- Empty space  -->
+            </b-col>
+            <b-col>
+              <b-card>
+                <b-card-text>
+                  My name is nick
+                </b-card-text>
+              </b-card>
+            </b-col>
+          </b-row>
+        </b-container>
     </ul>
 
-    <button class="btn btn-success">Yo</button>
 
+    <!-- Messing around with bootstrap... -->
 
 
 
@@ -98,4 +130,9 @@ html {
 h1 {
   text-decoration: underline;
 }
+
+.card #test {
+  background-color: rgb(237, 234, 234);
+}
+
 </style>
