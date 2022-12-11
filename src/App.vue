@@ -18,22 +18,19 @@ created() {
   let ActorNamesArray = [];
   ActorService.getAllActors().then((actor) => {
     const CageObj = actor.data.find(actor => actor.name == "Nicolas Cage")
-    // this.$store.commit("ADD_CAGE_ID", Cage.actorId);
     const CageId = CageObj.actorId
     const ReevesObj = actor.data.find(actor => actor.name == "Keanu Reeves");
-    // this.$store.commit("ADD_REEVES_ID", Reeves.actorId)
     const ReevesId = ReevesObj.actorId;
 
-    // Test to seee if Cage ID displays...
-    // console.log(this.$store.state.CageId)
-
     MovieService.getAllMovies().then((movie) => {
-      // Create lists of movies that star Cage 
+      // Create a list of movie objects that star Cage 
     let CageMovies = movie.data.filter(movie => (movie.actors.includes(CageId)))
-     // Create lists of movies that star Reeves 
+     // Create a list of movie objects that star Reeves 
     let ReevesMovies = movie.data.filter(movie => (movie.actors.includes(ReevesId)))
 
+
     let CageActorIDs = []
+    // For each movie object in the list of movies starring Cage...
     CageMovies.forEach((cageMovie) => {
       cageMovie.actors.forEach((actorID => {
         // for each actors in movie's actor array, add to CageActorIdsArray (make sure Cage isn't included)
@@ -43,10 +40,11 @@ created() {
       ))
     })
 
- //Remove duplicate actor IDs...
+ //Remove any duplicate actor IDs...
  CageActorIDs = [...new Set(CageActorIDs)]
     
     let ReevesActorIDs = []
+    // For each movie object in the list of movies starring Cage...
     ReevesMovies.forEach((reeveMovie) => {
       reeveMovie.actors.forEach((actorID => {
         // for each actors in movie's actor array, add to Reeves actorIDs (make sure Reeves isn't included)
@@ -56,29 +54,30 @@ created() {
       ))
     })
 
-//Remove duplicate actor IDs...
+//Remove any duplicate actor IDs...
 ReevesActorIDs = [...new Set(ReevesActorIDs)]
-    // 4. Populate ReevesCageActorIdsArray
-    // Filter CageActorIDs array where it matches with ReevesActorIDs array... 
+
+    // Create an array of actor IDs that starred in movies with Cage and Reeves...
     const ReevesCageActorIDs = CageActorIDs.filter(cageActorID => ReevesActorIDs.includes(cageActorID))
 
-     // ***Create Actor Names Array (for those starred in movies with Cage and Reeves)***
+
+    // For each actor object in actors list...
      actor.data.forEach(actor => {
+      // See if ID property mataches with list of actor IDs that starred in movies with Cage and Reeves...
       if (ReevesCageActorIDs.includes(actor.actorId)) {
-        // Check to see if creates actor list
+        // If so, push the object's name property to store (commit mutation)
         ActorNamesArray.push(actor.name)
         this.$store.commit("ADD_TO_ACTOR_NAMES_ARRAY", actor.name)
       }
         });
-        // Check to see if creates actor list
-        console.log(ActorNamesArray)
+
+        // Test in console to see if creates actor list
+        // console.log(ActorNamesArray)
 })})
 }
 }
 
 
-// Since lines above = promises (asynchronous behavior), if you run ActorsNamesArray down here, it gives us an array of zero since code above hasn't finished running yet... 
-//console.log(this.$store.state.ActorNamesArray)
 </script>
 
 <style>
@@ -90,7 +89,5 @@ ReevesActorIDs = [...new Set(ReevesActorIDs)]
   color: #2c3e50;
   background-color: rgb(235, 239, 239);
 }
-
-
 
 </style>
