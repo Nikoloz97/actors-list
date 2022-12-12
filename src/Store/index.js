@@ -5,13 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    ActorNamesArray: [ ]
+    // Actor objects that starred in movies with Cage and Reeves (contain Name, movieTitle)
+    ActorObjectsArray: []
   },
   getters: {
   },
   mutations: {
-    ADD_TO_ACTOR_NAMES_ARRAY(state, name) {
-      state.ActorNamesArray.push(name);
+    ADD_TO_ACTOR_OBJ_ARRAY(state, actorObj) {
+      state.ActorNamesArray.push(actorObj);
     },
   },
   actions: {
